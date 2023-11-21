@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 import StartGame from './screens/StartGame/StartGame'
 import GameScreen from './screens/GameScreen/GameScreen';
 import GameOver from './screens/GameOver/GameOver';
@@ -18,8 +19,14 @@ export default function App() {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
   });
 
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if(!fontsLoaded) {
-    return <AppLoading />
+    return null;
   };
 
   const startGameHandler = (selectedNumber) => {
@@ -50,18 +57,22 @@ export default function App() {
 
 
   return (
-    <LinearGradient colors={[Colors.primary700,Colors.yellow]} style={styles.main}>
-      <ImageBackground 
-      source={require('./assets/image/game.jpeg')}
-      resizeMode='cover'
-      style={styles.main}
-      imageStyle={{opacity:0.15}}
+    <>
+      <StatusBar style="light" />
+      <LinearGradient
+        colors={[Colors.primary700, Colors.yellow]}
+        style={styles.main}
       >
-      <SafeAreaView style={styles.main}>
-      {screen}
-      </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./assets/image/game.jpeg")}
+          resizeMode="cover"
+          style={styles.main}
+          imageStyle={{ opacity: 0.15 }}
+        >
+          <SafeAreaView style={styles.main}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   ); 
 }
 

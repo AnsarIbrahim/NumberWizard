@@ -1,7 +1,12 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
 
+// const deviseWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   rootContainer: {
     flex: 1,
     padding: 24,
@@ -9,9 +14,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageContainer: {
-    width: 300,
-    height: 300,
-    borderRadius: 150,
+    // width: deviseWidth < 380 ? 150 : 300,
+    // height: deviseWidth < 380 ? 150 : 300,
+    // borderRadius: deviseWidth < 380 ? 75 : 150,
     borderWidth: 3,
     borderColor: Colors.primary800,
     overflow: "hidden",
@@ -22,9 +27,9 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   summaryText: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     fontSize: 24,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 24,
   },
   highlight: {
