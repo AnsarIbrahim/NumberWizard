@@ -66,6 +66,7 @@ NumberWizard is an engaging React Native app that challenges users to guess a ra
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://numberwizardgame.netlify.app/)
+- [APK File](https://drive.google.com/file/d/1eL3h0H4MQNZxq4mGTzcdxt3No5_3bHQw/view?usp=sharing)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
